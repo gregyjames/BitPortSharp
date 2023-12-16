@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitPortLibrary", "BitPortLibrary\BitPortLibrary.csproj", "{650CDA52-87E6-48EA-8A5C-BFB97915AEF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APITestConsole", "APITestConsole\APITestConsole.csproj", "{FF211F11-421E-4891-9D43-DC511775BCC5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{650CDA52-87E6-48EA-8A5C-BFB97915AEF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{650CDA52-87E6-48EA-8A5C-BFB97915AEF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{650CDA52-87E6-48EA-8A5C-BFB97915AEF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{650CDA52-87E6-48EA-8A5C-BFB97915AEF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF211F11-421E-4891-9D43-DC511775BCC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF211F11-421E-4891-9D43-DC511775BCC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF211F11-421E-4891-9D43-DC511775BCC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF211F11-421E-4891-9D43-DC511775BCC5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
