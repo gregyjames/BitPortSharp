@@ -48,6 +48,7 @@ public class UserCodeAuth: IAuth
         {
             var json_object = JsonSerializer.Deserialize<UserCodeAuthObject>(json);
             token = json_object;
+            HelperMethod.SerializeObjectToFile(json_object, "token.json");
             Autherized = true;
             return json_object;
         }

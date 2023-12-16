@@ -1,6 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using Autofac;
+﻿using Autofac;
 using BitPortLibrary;
 using BitPortLibrary.Auth;
 using BitPortLibrary.Objects.Cloud;
@@ -11,7 +9,6 @@ using Serilog.Sinks.SystemConsole.Themes;
 
 var configurationBuilder = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json");
-
 var configuration = configurationBuilder.Build();
 
 var seriLog = new LoggerConfiguration()
@@ -27,7 +24,9 @@ var factory = LoggerFactory.Create(logging =>
 var builder = new ContainerBuilder();
 builder.RegisterInstance(configuration).As<IConfiguration>();
 builder.RegisterInstance(factory).As<ILoggerFactory>();
-builder.RegisterModule(new AutoFacModule(AuthorizationTypes.USER_CODE_AUTH));
+builder.RegisterModule(File.Exists("token.json")
+    ? new AutoFacModule(AuthorizationTypes.USER_CODE_FILE_AUTH)
+    : new AutoFacModule(AuthorizationTypes.USER_CODE_AUTH));
 var ctx = builder.Build();
 var client = ctx.Resolve<BitPortClient>();
 var folders = (await client.ByPath("")).data;

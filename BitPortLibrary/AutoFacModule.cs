@@ -19,6 +19,9 @@ public class AutoFacModule: Module
             case AuthorizationTypes.USER_CODE_AUTH:
                 builder.RegisterType<UserCodeAuth>().As<IAuth>();
                 break;
+            case AuthorizationTypes.USER_CODE_FILE_AUTH:
+                builder.RegisterType<UserCodeFileAuth>().As<IAuth>();
+                break;
             default:
                 break;
         }
