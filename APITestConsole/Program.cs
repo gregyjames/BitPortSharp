@@ -5,19 +5,31 @@ using BitPortLibrary;
 using BitPortLibrary.Auth;
 using BitPortLibrary.Objects.Cloud;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Serilog;
+using Serilog.Sinks.SystemConsole.Themes;
 
 var configurationBuilder = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json");
 
 var configuration = configurationBuilder.Build();
 
-ContainerBuilder builder = new ContainerBuilder();
+var seriLog = new LoggerConfiguration()
+    .Enrich.FromLogContext()
+    .MinimumLevel.Information()
+    .WriteTo.Async(a => a.Console(theme: AnsiConsoleTheme.Sixteen))
+    .CreateLogger();
+var factory = LoggerFactory.Create(logging =>
+{
+    logging.AddSerilog(seriLog);
+});
 
+var builder = new ContainerBuilder();
 builder.RegisterInstance(configuration).As<IConfiguration>();
+builder.RegisterInstance(factory).As<ILoggerFactory>();
 builder.RegisterModule(new AutoFacModule(AuthorizationTypes.USER_CODE_AUTH));
 var ctx = builder.Build();
 var client = ctx.Resolve<BitPortClient>();
-
 var folders = (await client.ByPath("")).data;
 
 ByPathObject.Folders s = null;

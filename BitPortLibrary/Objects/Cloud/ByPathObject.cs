@@ -15,7 +15,7 @@ public class Data
 {
     public string name { get; set; }
     public object code { get; set; }
-    public int size { get; set; }
+    //public int size { get; set; }
     public object files_count { get; set; }
     public object created_at { get; set; }
     public object parent_folder_code { get; set; }
