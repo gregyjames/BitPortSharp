@@ -23,7 +23,24 @@ public static class Transfers
 
         return false;
     }
-
+    
+    public static async Task DownloadFile(this BitPortClient client, string fileCode)
+    {
+        var request_url = URLs.method_call_base + $"/v2/files/{fileCode}/download";
+        client._logger.LogInformation(request_url);
+        var message = await client._client.GetAsync(request_url);
+        await using var fileStream = File.Create(fileCode + ".zip");
+        await message.Content.CopyToAsync(fileStream);
+    }
+    
+    public static async Task<Stream> DownloadFileAsStream(this BitPortClient client, string fileCode)
+    {
+        var request_url = URLs.method_call_base + $"/v2/files/{fileCode}/download";
+        client._logger.LogInformation(request_url);
+        var message = await client._client.GetAsync(request_url);
+        return await message.Content.ReadAsStreamAsync();
+    }
+    
     public static async Task<string> GetTransfers(this BitPortClient client)
     {
         var request_url = URLs.method_call_base + $"/v2/transfers";
