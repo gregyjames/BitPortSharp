@@ -28,14 +28,11 @@ public static class CloudExtensions
         return null;
     }
 
-    public static async Task GetFolderZipURL(this BitPortClient client, string folderCode)
+    public static async Task<Stream> GetFolderZipURL(this BitPortClient client, string folderCode)
     {
         var request_url = URLs.method_call_base + $"/v2/cloud/{folderCode}/download-as-zip";
         client._logger.LogInformation(request_url);
         var message = await client._client.GetAsync(request_url);
-        await using (var fileStream = File.Create(folderCode + ".zip"))
-        {
-            await message.Content.CopyToAsync(fileStream);
-        }
+        return await message.Content.ReadAsStreamAsync();
     }
 }
