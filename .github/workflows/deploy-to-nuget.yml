@@ -1,0 +1,37 @@
+name: NuGet Publish
+
+on:
+  push:
+    tags:
+      - 'v*.*.*' # Specify the tag pattern, e.g., 'v1.0.0'
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - uses: actions/cache@v2
+      id: cacheStep
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Setup NuGet.exe for use with actions
+      uses: NuGet/setup-nuget@v1.0.5
+    - name: Restore NuGet
+      if: steps.cacheStep.outputs.cache-hit != 'true'
+      run: nuget restore Octane.sln
+    - name: Build
+      run: dotnet build --no-restore --configuration Release
+    - name: Publish NuGet package
+      run: dotnet nuget push **/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
+      env:
+        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
