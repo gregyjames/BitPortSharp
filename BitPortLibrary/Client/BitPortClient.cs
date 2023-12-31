@@ -16,6 +16,7 @@ public class BitPortClient
 
         _logger = factory.CreateLogger<BitPortClient>();
         _client = new HttpClient();
+        _client.Timeout = Timeout.InfiniteTimeSpan;
         _client.DefaultRequestHeaders.Add("Authorization", auth.GetToken());
     }
 }

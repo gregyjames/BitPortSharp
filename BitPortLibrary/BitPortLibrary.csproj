@@ -14,6 +14,7 @@
         <PackageLicenseUrl>https://github.com/gregyjames/BitPortSharp/blob/main/LICENSE</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/gregyjames/BitPortSharp.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
+        <Version>1.0.1</Version>
     </PropertyGroup>
 
     <ItemGroup>
