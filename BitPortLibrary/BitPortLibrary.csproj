@@ -4,6 +4,16 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>BitPortSharp</PackageId>
+        <Title>BitPortSharp</Title>
+        <Authors>Greg James</Authors>
+        <Description>C# Wrapper for the BitPort API.</Description>
+        <Copyright>Greg James 2015</Copyright>
+        <PackageProjectUrl>https://github.com/gregyjames/BitPortSharp</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/gregyjames/BitPortSharp/blob/main/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/gregyjames/BitPortSharp.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
     </PropertyGroup>
 
     <ItemGroup>
