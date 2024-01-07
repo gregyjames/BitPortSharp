@@ -15,8 +15,13 @@
         <RepositoryUrl>https://github.com/gregyjames/BitPortSharp.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <Version>1.0.1</Version>
+        <PackageIcon>Elegantthemes-Beautiful-Flat-Anchor.256.png</PackageIcon>
     </PropertyGroup>
 
+    <ItemGroup>
+        <None Include="docs\Elegantthemes-Beautiful-Flat-Anchor.256.png" Pack="true" PackagePath="\" />
+    </ItemGroup>
+    
     <ItemGroup>
       <PackageReference Include="Autofac" Version="7.1.0" />
       <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
