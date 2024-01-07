@@ -17,6 +17,7 @@
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <Version>1.0.1</Version>
         <PackageIcon>Elegantthemes-Beautiful-Flat-Anchor.256.png</PackageIcon>
+        <PackageTags>api download torrent c-sharp downloader client bitport</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
