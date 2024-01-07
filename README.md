@@ -1,5 +1,9 @@
 [![.NET](https://github.com/gregyjames/BitPortSharp/actions/workflows/dotnet.yml/badge.svg)](https://github.com/gregyjames/BitPortSharp/actions/workflows/dotnet.yml)
-[![NuGet latest version](https://badgen.net/nuget/v/BitPortSharp)](https://www.nuget.org/packages/BitPortSharp)
+![Nuget](https://img.shields.io/nuget/v/BitPortSharp)
+![Nuget](https://img.shields.io/nuget/dt/BitPortSharp)
+![GitHub License](https://img.shields.io/github/license/gregyjames/BitPortSharp)
+![GitHub Repo stars](https://img.shields.io/github/stars/gregyjames/BitPortSharp?style=flat)
+![GitHub forks](https://img.shields.io/github/forks/gregyjames/BitPortSharp?style=flat)
 
 # BitPortSharp
 C# Wrapper for the BitPort API.
